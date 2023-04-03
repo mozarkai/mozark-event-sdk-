@@ -16,7 +16,7 @@ Pod::Spec.new do |spec|
   #
 
   spec.name         = "MozarkEventsSDK"
-  spec.version      = "1.2.24"
+  spec.version      = "1.0"
   spec.summary      = "MozarkEventsSDK is the Mozart event SDK"
   spec.description  =  "MozarkEventsSDK is the Mozart event SDK"
   spec.homepage     = "https://mozark.ai/fr/"
@@ -67,7 +67,7 @@ Pod::Spec.new do |spec|
   #  Specify the location from where the source should be retrieved.
   #  Supports git, hg, bzr, svn and HTTP.
 
-   spec.source       = { :git => "git@bitbucket.org:mozarkai/event_sdk_ios.git",:tag => "develop"}
+   spec.source       = { :git => "https://github.com/mozarkai/mozark-event-sdk-ios.git",:tag => spec.version.to_s}
 
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
