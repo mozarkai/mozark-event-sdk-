@@ -1,0 +1,16 @@
+PODS:
+  - MozarkEventConstants (1.5.21)
+
+DEPENDENCIES:
+  - MozarkEventConstants
+
+SPEC REPOS:
+  https://github.com/CocoaPods/Specs.git:
+    - MozarkEventConstants
+
+SPEC CHECKSUMS:
+  MozarkEventConstants: 4a09ef982b6c2513dd9054a2ddc4d4052418e873
+
+PODFILE CHECKSUM: 3a0d8a7fc0961cb44086a0ff3dbcdc48258d6872
+
+COCOAPODS: 1.12.0
