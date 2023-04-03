@@ -1,5 +1,5 @@
 PODS:
-  - MozarkEventConstants (1.5.21)
+  - MozarkEventConstants (2.0)
 
 DEPENDENCIES:
   - MozarkEventConstants
@@ -9,7 +9,7 @@ SPEC REPOS:
     - MozarkEventConstants
 
 SPEC CHECKSUMS:
-  MozarkEventConstants: 4a09ef982b6c2513dd9054a2ddc4d4052418e873
+  MozarkEventConstants: 744299cf08cdcb2b19bc473c2e723746b27fd3a0
 
 PODFILE CHECKSUM: cd30eb97bfa2db3df9b8fbc0b0cb1913dc39b522
 

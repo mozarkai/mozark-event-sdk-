@@ -1,11 +1,7 @@
 ## Installation :  
   Via cocoapods : 
 
-
     pod 'MozarkEventsSDK'
-    
-
-
 ## Use :
 Import  **MozarkEventsSDK** and also **MozarkEventConstants**
 **MozarkEventConstants** is an sdk used to define allowed event names for an application, it will be loaded automatically with the **MozarkEventsSDK**
@@ -35,11 +31,42 @@ As we can send an event with value like this
       static let journeyConstant : JourneyConstants  = JourneyConstants() // Get authorized journey names
        capturedEvent.trackMetric(eventName: eventConstant.transactionAmount, eventValue: "20", journeyName: journeyConstant.moneyTransfer)
 The tracked events will be sent automatically if you have reached the batch size and if you have not yet reached the batch size they will be sent after a batch timeout
+## Start journey :
+The start journey method will push a start event to detect the start of a new journey, we will put it for example in the setup method which is executed each new test
 
+    override func setUp() {
+        super.setUp()
+        capturedEvent.starNewJourney()
+    }
+    
+## end journey :
+The end journey method will push an end event to detect the end of a journey, we will put it for example in the teardown method which is executed at the end of each test,as we will give the possibility to synchronize the events with the server if they are not yet sent.
+
+    override func tearDown() {
+        super.tearDown()
+        capturedEvent.endJourneyAndSendItsRemainingEvents { success in
+        }
+    }
+We can use **expectation** to be sure that our events are well synchronized like this : 
+
+    override func tearDown() {
+        super.tearDown()
+        let endEventExpection = expectation(description: "endEvent")
+        var endEventSuccess = false
+        FiveGMark.capturedEvent.endJourneyAndSendItsRemainingEvents { success in
+            endEventSuccess = success
+            endEventExpection.fulfill()
+        }
+        waitForExpectations(timeout: 10) { _ in
+            XCTAssert(endEventSuccess == true,"Problem with send end event")
+        }
+    }
 ## Finish sending events :   
-To successfully complete the scenario, you must call the endSendEvents method at the end so that our sdk that you have finished sending the events
+To successfully complete the scenario, you must call the endSendEvents method at the end so that our sdk that you have finished sending the events and reset values.
 
 
-    capturedEvent.endSendEvents()
+    override class func tearDown() {
+        capturedEvent.endSendEvents()
+    }
     
 ------
