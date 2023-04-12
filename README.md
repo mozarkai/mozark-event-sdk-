@@ -1,7 +1,34 @@
 ## Installation :  
-  Via cocoapods : 
+To integrate MozarkEventsSDK into a new project we have 4 possible steps:
+#### 1 - Install cocoapods
+If cocoapods is not installed on your Mac try typing this command in the terminal : 
+ 
+     sudo gem install cocoapods
+ 
+#### 2- Generate podfile
 
+    pod init
+logically you will have a new file called Podfile generated in your project tree
+
+#### 3- Prepare Podfile
+You are just invited to add two lines in the podfile:
+
+    source 'https://github.com/CocoaPods/Specs.git'
+    And
     pod 'MozarkEventsSDK'
+here is an example of the structure of a podfile    
+
+    source 'https://github.com/CocoaPods/Specs.git'
+    target 'test_Project' do
+     use_frameworks!
+     pod "MozarkEventsSDK"
+    end
+    
+#### 4- Load MozarkEventsSDK
+
+     pod install
+
+
 ## Use :
 Import  **MozarkEventsSDK** and also **MozarkEventConstants**
 **MozarkEventConstants** is an sdk used to define allowed event names for an application, it will be loaded automatically with the **MozarkEventsSDK**
@@ -70,3 +97,4 @@ To successfully complete the scenario, you must call the endSendEvents method at
     }
     
 ------
+
