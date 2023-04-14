@@ -96,5 +96,15 @@ To successfully complete the scenario, you must call the endSendEvents method at
         capturedEvent.endSendEvents()
     }
     
+## How to release a new version
+
+To publish a new version, you must:
+1 - Increment the **spec.version** attribute in the MozarkEventsSDK.podspec file
+2 - Push the code to branch **main**
+3 - Create a new tag that corresponds to the version number, for exemple tag number is 2.1 => **git tag 2.1**                  
+4 - Push the tag => **git push origin 2.1**
+5 - Check if MozarkEventsSDK.podspec file is valid  => **pod lib lint MozarkEventsSDK.podspec --allow-warnings**
+6- Publish update : **pod trunk push  MozarkEventsSDK.podspec --allow-warnings**  
 ------
+
 
